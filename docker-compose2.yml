@@ -3,3 +3,10 @@ name: "extended"
 services:
   web3:
     image: strm/helloworld-http
+    networks:
+      - my-network
+
+networks:
+  my-network:
+    external:
+      name: my_network

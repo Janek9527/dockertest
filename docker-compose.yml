@@ -3,8 +3,12 @@ name: "base"
 services:
   web1:
     image: strm/helloworld-http
+    networks:
+      - my-network
   web2:
     image: strm/helloworld-http
+    networks:
+      - my-network
   caddy:
     image: caddy:alpine
     restart: unless-stopped
@@ -22,3 +26,7 @@ services:
       - ACME_AGREE=true                   # agree to ACME for auto HTTPS
 volumes:
   caddycerts:
+networks:
+  my-network:
+    name: my_network
+    driver: bridge
