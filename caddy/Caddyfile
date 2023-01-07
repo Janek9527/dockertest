@@ -33,6 +33,17 @@ gassweb2.duckdns.org:443 {
   
     # Proxy the Root directory to Rocket
     reverse_proxy web2:80
-  }
+}
   
-
+gassweb3.duckdns.org:443 {
+    # Caddy on port 443 in container to vaultwarden private instance 
+    # Use it if Caddy exposed to the net 
+    # Doc about automatic HTTPS https://caddyserver.com/docs/automatic-https
+  
+    # Uncomment only one of the 2 lines. Depending if you provide your own cert or request one from Let's Encrypt
+    # tls {$SSLCERTIFICATE} {$SSLKEY}
+    tls janek9527@gmail.com
+  
+    # Proxy the Root directory to Rocket
+    reverse_proxy web3:80
+}
