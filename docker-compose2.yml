@@ -1,4 +1,5 @@
 version: "3.9"
+name: "extended"
 services:
   web3:
     image: strm/helloworld-http

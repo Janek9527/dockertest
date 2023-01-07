@@ -1,4 +1,5 @@
 version: "3.9"
+name: "base"
 services:
   web1:
     image: strm/helloworld-http
