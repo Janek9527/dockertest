@@ -1,0 +1,23 @@
+version: "3.9"
+services:
+  web1:
+    image: strm/helloworld-http
+  web2:
+    image: strm/helloworld-http
+  caddy:
+    image: caddy:alpine
+    restart: unless-stopped
+    container_name: caddy
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - $PWD/caddy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - ${PWD}/caddy/data:/data
+      - caddycerts:/root/.caddy
+    environment:
+      - LOG_FILE=/data/logs/caddy.log
+      - ACME_AGREE=true                   # agree to ACME for auto HTTPS
+volumes:
+  caddycerts:
