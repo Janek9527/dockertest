@@ -24,6 +24,8 @@ services:
     environment:
       - LOG_FILE=/data/logs/caddy.log
       - ACME_AGREE=true                   # agree to ACME for auto HTTPS
+    networks:
+      - my-network
 volumes:
   caddycerts:
 networks:

@@ -8,5 +8,5 @@ services:
 
 networks:
   my-network:
-    external:
-      name: my_network
+    name: my_network
+    external: true
